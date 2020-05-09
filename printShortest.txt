@@ -18,7 +18,7 @@ void printShortestPath_price(MGraph& G,int v,Weight dist[],int path[])
         }
 }
 
-
+///
 void printShortestPath_time(MGraph& G,int v,Weight dist[],int path[])
 {
     printf("The flight time from city[%d] to other city is:\n",G.VerticesList[v]);
