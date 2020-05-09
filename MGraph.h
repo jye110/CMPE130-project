@@ -94,3 +94,64 @@ void ShortestPath(MGraph& G,int v,Weight dist[],int path[])
     }
 
 }
+
+void printShortestPath_price(MGraph& G,int v,Weight dist[],int path[])
+{
+    printf("From [%d]to other city will cost£º\n",G.VerticesList[v]);
+    int i,j,k,n=numberOfVertices(G);
+    int d[maxVertices];
+    for(i=0;i<n;i++)
+        if(i!=v){
+            j=i;k=0;
+            while(j!=v){
+                d[k++]=j;
+                j=path[j];
+            }
+            d[k++]=v;
+            printf("From [%d] to other city the £º",G.VerticesList[i]);
+            while(k>0)
+                printf("%d",G.VerticesList[d[--k]]);
+            printf("\nPrice is:%d $\n",dist[i]);
+        }
+}
+
+
+void printShortestPath_time(MGraph& G,int v,Weight dist[],int path[])
+{
+    printf("The flight time from city[%d] to other city is:\n",G.VerticesList[v]);
+    int i,j,k,n=numberOfVertices(G);
+    int d[maxVertices];
+    for(i=0;i<n;i++)
+        if(i!=v){
+            j=i;k=0;
+            while(j!=v){
+                d[k++]=j;
+                j=path[j];
+            }
+            d[k++]=v;
+            printf("To city [%d] shortest path is£º",G.VerticesList[i]);
+            while(k>0)
+                printf("%d",G.VerticesList[d[--k]]);
+            printf("\nFlight time is :%d\n",dist[i]);
+        }
+}
+
+void printShortestPath_num(MGraph& G,int v,Weight dist[],int path[])
+{
+    printf("From city [%d]Number of transfers is:%d\n",G.VerticesList[v]);
+    int i,j,k,n=numberOfVertices(G);
+    int d[maxVertices];
+    for(i=0;i<n;i++)
+        if(i!=v){
+            j=i;k=0;
+            while(j!=v){
+                d[k++]=j;
+                j=path[j];
+            }
+            d[k++]=v;
+            printf("to the city [%d} The shortest path length is£º",G.VerticesList[i]);
+            while(k>0)
+                printf("%d",G.VerticesList[d[--k]]);
+            printf("Number of transfers is:%d\n",dist[i]-1);
+        }
+}
